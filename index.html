@@ -1,0 +1,655 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="https://themewagon.github.io/sungo">
+    <link rel="icon" type="image/svg+xml" href="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saugatr - Learning Management System for Students & Teachers</title>
+
+    <link rel="stylesheet" crossorigin="" href="/sungo/assets/index-BxSIOMPC.css">
+    <link rel="stylesheet" href="https://www.jqueryscript.net/demo/swipe-to-dismiss-toast/jquery.swipetoast.min.css">
+    <style>
+        .replies {
+            margin-left: 120px !important;
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        .btn-close {
+            display: none;
+        }
+
+        .news-details-area .blog-post-details .single-blog-post .post-content .post-list {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+
+        input,
+        .modal-content,
+        textarea,
+        .theme-btn,
+        .btn {
+            border-radius: 25px !important;
+        }
+
+
+        body,
+        .modal-content {
+            background: #111;
+            color: white !important;
+        }
+
+        .header-1 {
+            background-color: #222;
+            height: 70px;
+        }
+
+        .footer-bottom.style-2 {
+            background-color: #222;
+            border-top: 3px solid #00bf63;
+        }
+
+        .header-main {
+            padding: 0;
+        }
+
+        body a {
+            color: white !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: white;
+        }
+
+        .news-details-area .blog-post-details .comments-area {
+            background: transparent;
+        }
+
+        .news-details-area .blog-post-details .comments-area .blog-single-comment .content .reply {
+            color: #222 !important;
+            font-size: 14px;
+            padding: 2px 5px;
+        }
+
+        .modal-content input,
+        .modal-content textarea,
+        textarea {
+            background-color: #333;
+            color: white !important;
+        }
+
+        .modal-content input:focus,
+        .modal-content textarea:focus {
+            background-color: #333;
+        }
+
+        .news-details-area .blog-post-details .comments-area .blog-single-comment {
+            border: none !important;
+        }
+
+        .con,
+        .content {
+            width: 100%;
+        }
+
+        .con span {
+            float: right;
+            font-style: italic;
+            font-size: 10px !important;
+            margin-top: -30px;
+        }
+
+        .news-details-area .blog-post-details .comments-area {
+            padding: 40px 10px;
+        }
+
+        .accordion {
+            width: 100%;
+            margin: auto;
+            background-color: transparent;
+        }
+
+        .accordion-item {
+            background-color: #111;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: none !important;
+            border-bottom: 1px solid #222;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 18px 20px;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #fff;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #1b1b1b;
+            padding: 0 20px;
+            border-bottom: 1px solid #222;
+            color: #fff;
+        }
+
+        .accordion-content p {
+            padding: 20px 0;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 100%;
+        }
+
+        .icon {
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .accordion-item.active .icon {
+            transform: rotate(45deg);
+        }
+
+        .link-item {
+            border: 1px solid #eee;
+            margin-bottom: 5px;
+            padding: 1px 7px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .link-item a {
+            padding: 10px;
+            background: #00bf63;
+            font-size: 18px;
+            margin-right: -6px;
+        }
+
+        .link-item.openIframe,
+        .link-item.openPremium,
+        .getPremium {
+            width: 100%;
+            background: #00bf63;
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 5px 10px;
+            max-width: 170px;
+            text-align: center;
+            display: block;
+            border-radius: 15px;
+            transition: all .5s ease;
+        }
+
+        .link-item.openPremium,
+        .getPremium {
+            background: orange;
+            box-shadow: 0 0 2px orange,
+                0 0 10px orange,
+                0 0 20px orange;
+            color: black;
+            font-weight: bold;
+        }
+
+        .getPremium {
+            display: block;
+        }
+
+        .link-item.openIframe:hover {
+            background-color: #037a41;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        #message,
+        #email2,
+        #name {
+            border: none !important;
+            background: #1b1b1b;
+        }
+        #premiumModel{
+            background-color: black;
+        }
+        #premiumModel .modal-header {
+            border: none !important;
+            padding: 5px 20px;
+        }
+
+        #premiumModel .modal-body {
+            margin-top: -15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <header>
+            <div id="header-sticky" class="header-1  ">
+                <div class="container-fluid">
+                    <div class="mega-menu-wrapper">
+                        <div class="header-main style-2">
+                            <div class="header-left">
+                                <div class="logo"><a class="header-logo" href="javascript:void(0)"><img
+                                            src="https://app.nirbytes.net/logo-website1.png" alt="logo-img"
+                                            height="50"></a></div>
+                            </div>
+                            <div class="header-right d-flex justify-content-end align-items-center">
+                                <div class="mean__menu-wrapper d-lg-block d-none">
+                                    <div class="main-menu">
+                                        <nav id="mobile-menu">
+                                            <ul>
+                                                <li class="menu-thumb  active"><a href="javascript:void(0)"
+                                                        data-discover="true">Home</a>
+                                                    <ul class="submenu has-homemenu" style="display: none;">
+                                                        <li class="homemenu-items">
+                                                            <div class="homemenu">
+                                                                <div class="homemenu-thumb"><img
+                                                                        src="/sungo/img/header/home-1.jpg" alt="img">
+                                                                    <div class="demo-button"><a class="theme-btn"
+                                                                            href="/sungo/"
+                                                                            data-discover="true"><span>Multi
+                                                                                Page</span></a><a class="theme-btn"
+                                                                            href="/sungo/home-one-single"
+                                                                            data-discover="true"><span>One
+                                                                                Page</span></a></div>
+                                                                </div>
+                                                                <div class="homemenu-content text-center">
+                                                                    <h4 class="homemenu-title">Home 01</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="homemenu">
+                                                                <div class="homemenu-thumb"><img
+                                                                        src="/sungo/img/header/home-2.jpg" alt="img">
+                                                                    <div class="demo-button"><a class="theme-btn"
+                                                                            href="/sungo/home-two"
+                                                                            data-discover="true"><span>Multi
+                                                                                Page</span></a><a class="theme-btn"
+                                                                            href="/sungo/home-two-single"
+                                                                            data-discover="true"><span>One
+                                                                                Page</span></a></div>
+                                                                </div>
+                                                                <div class="homemenu-content text-center">
+                                                                    <h4 class="homemenu-title">Home 02</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="homemenu">
+                                                                <div class="homemenu-thumb"><img
+                                                                        src="/sungo/img/header/home-3.jpg" alt="img">
+                                                                    <div class="demo-button"><a class="theme-btn"
+                                                                            href="/sungo/home-three"
+                                                                            data-discover="true"><span>Multi
+                                                                                Page</span></a><a class="theme-btn"
+                                                                            href="/sungo/home-three-single"
+                                                                            data-discover="true"><span>One
+                                                                                Page</span></a></div>
+                                                                </div>
+                                                                <div class="homemenu-content text-center">
+                                                                    <h4 class="homemenu-title">Home 03</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="homemenu">
+                                                                <div class="homemenu-thumb"><img
+                                                                        src="/sungo/img/header/home-4.jpg" alt="img">
+                                                                    <div class="demo-button"><a class="theme-btn"
+                                                                            href="/sungo/home-four"
+                                                                            data-discover="true"><span>Multi
+                                                                                Page</span></a><a class="theme-btn"
+                                                                            href="/sungo/home-four-single"
+                                                                            data-discover="true"><span>One
+                                                                                Page</span></a></div>
+                                                                </div>
+                                                                <div class="homemenu-content text-center">
+                                                                    <h4 class="homemenu-title">Home 04</h4>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="  "><a
+                                                        href="javascript:window.alert('Hello its saugatr new educational site.')"
+                                                        data-discover="true">About </a>
+                                                </li>
+
+                                                <li class=" has-dropdown "><a
+                                                        href="javascript:alert('Hello contact me in Instagram. @saugatr_official')"
+                                                        data-discover="true">Contact</a>
+                                                </li>
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="news-standard fix ">
+            <div class="container">
+                <div class="news-details-area">
+                    <div class="row g-5">
+                        <div class="col-12 col-lg-10 mx-auto">
+                            <div class="blog-post-details">
+
+                                <div class="refresh" id="refresh"></div>
+
+                                <div class="comment-form-wrap pt-5">
+                                    <h3>Post comment</h3>
+                                    <span style="color:orange; font-style: italic;"> NOTE: Spam comments will be
+                                        removed! </span>
+                                    <br> <br>
+                                    <form id="commentForm" method="POST">
+                                        <div class="row g-4">
+                                            <div class="col-lg-6">
+                                                <div class="form-clt"><input type="text" name="name" id="name"
+                                                        placeholder="Full Name" required></div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-clt"><input type="text" type="email" name="email"
+                                                        id="email2" placeholder="Email Address" required></div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-clt"><textarea rows="1" name="comment" id="message"
+                                                        placeholder="Write a comment" required></textarea></div>
+                                            </div>
+                                            <div class="col-lg-6"><button id="commentBTN" type="submit"
+                                                    class="theme-btn ">post<i
+                                                        class="fa-solid fa-arrow-right-long"></i></button></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer-section footer-bg " style="margin-top: 100px;">
+            <div class="footer-bottom style-2 ">
+                <div class="container-fluid">
+                    <div class="footer-wrapper d-flex align-items-center justify-content-between">
+                        <p class=" color-2">
+                            Copyright © 2026 by <a href="javascript:void(0)" data-discover="true">Saugatr</a></p>
+                        <ul class="footer-menu ">
+                            <li><a href="javascript:void(0)" data-discover="true">Home</a></li>
+                            <li><a href="javascript:alert('Disclaimer: The content provided on Saugatr Learning is for educational and informational purposes only. While we strive to keep the information accurate and up to date, we make no guarantees regarding completeness, reliability, or accuracy. Users are advised to verify important information independently, and Saugatr Learning shall not be held responsible for any loss or issues arising from the use of the website or its materials.')" data-discover="true">Disclaimer</a></li>
+                            <li><a href="javascript:alert('Terms and Conditions: By accessing and using Saugatr Learning, you agree to use the website only for lawful and educational purposes. All content, including notes, tutorials, videos, and materials, is provided for personal learning use only and may not be copied, redistributed, or reproduced without permission. Users must not misuse the website, attempt unauthorized access, or engage in activities that may harm the platform or other users. Saugatr Learning reserves the right to modify, update, or remove content and services at any time without prior notice. Continued use of the website indicates acceptance of these terms and conditions.')" data-discover="true">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal replyModel" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="replyForm" method="post">
+                        <div class="form-group mt-2"><label for="">Full Name</label><input placeholder="" name="name"
+                                required type="text" class="form-control"></div>
+                        <div class="form-group mt-2"><label for="">Email Address</label><input placeholder=""
+                                name="email" required type="email" class="form-control">
+                        </div>
+                        <div class="form-group mt-2"><label for="">Reply</label><textarea name="comment" id="replyBody"
+                                required class="form-control"></textarea></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="replyPostBtn">Post reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal iframeModel  " id="iframeModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="video-container">
+                        <iframe src="" title="video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p> Description open above !!! </p>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal premiumModel " id="premiumModel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header justify-content-between">
+                    <h4 class="premiumDate"> Premium update - 15 June 2026 </h4>
+                    <button type="button" class="btn text-white ml-auto" style=" font-size: 32px; padding: 0;"
+                        data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-8">
+                            <img src="https://app.nirbytes.net/premium.png" class="p-3" style="width: 100%;">
+                        </div>
+                        <div class="col-lg-4 text-center">
+                            <a href="https://www.youtube.com/watch?v=qFXj5nucrME"
+                                style="font-weight: normal; color: rgb(251, 255, 0) !important; text-decoration: underline;"
+                                class="" target="_blank">How to Access? Tutorial ➝</a> <br>
+                            <br><br>
+                            <a href="#" target="_blank" class="getPremium d-block m-auto">Get Premium Links 🜲</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src="https://www.jqueryscript.net/demo/swipe-to-dismiss-toast/jquery.swipetoast.min.js"></script>
+    <script>
+        const myModal = new bootstrap.Modal('#staticBackdrop');
+        let iframeSelector = document.getElementById('iframeModel');
+        let premiumSelector = document.getElementById('premiumModel');
+        const iframeModel = new bootstrap.Modal("#iframeModel");
+        const premiumModel = new bootstrap.Modal("#premiumModel");
+
+        iframeSelector.addEventListener('hide.bs.modal', function () {
+            iframeSelector.querySelector('iframe').src = '';
+        })
+
+        premiumSelector.addEventListener('hide.bs.modal', function () {
+            //premiumSelector.querySelector('iframe').src = '';
+        });
+
+
+
+
+        let replyId = null;
+        let mainURL = "https://app.nirbytes.net/server1.php";
+
+        const root = document.documentElement;
+        root.style.setProperty('--theme', '#00bf63'); // Cha
+        root.style.setProperty('--theme2', '#00bf63'); // Cha
+
+
+
+        $('#replyPostBtn').on('click', replyComment);
+
+        $(document).on('click', '.reply', function (e) {
+
+            let id = $(this).attr('data-id');
+            replyId = id;
+            let name = $(this).attr('data-name');
+            $("#staticBackdrop .modal-title").text("Post reply for " + name + " s Comment.");
+            myModal.show();
+        })
+
+        $(document).on('click', '.openIframe', function (e) {
+            let ytId = $(this).data('id');
+            let fURL = `https://youtube.com/embed/${ytId}`;
+            iframeSelector.querySelector('iframe').src = fURL;
+            iframeModel.show();
+        })
+
+        $(document).on('click', '.openPremium', function (e) {
+            let premiumURL = $(this).data('id');
+            let premiumDate = $(this).data('date');
+            $('.getPremium').attr('href',premiumURL);
+            $('.premiumDate').text(`Premium update - ${premiumDate}`);
+
+            premiumModel.show();
+        })
+
+
+        function replyComment() {
+
+            var queryString = $('#replyForm').serialize();
+            let k = new URLSearchParams(queryString);
+            if (k.get('name') == "" || k.get('email') == "" || k.get('reply') == "") {
+                return alert('Please fill all fields.');
+            }
+            queryString = queryString + '&action=replycomment&pid=' + replyId;
+
+            if (!replyId) return;
+            $('#replyPostBtn').prop('disabled', true).text('Posting...');
+            //post reply
+            $.ajax({
+                url: mainURL + "?" + queryString,
+                method: "GET",
+                success: function (r) {
+                    if (r == 1) {
+                        $('#replyForm').trigger('reset');
+                        replyId = null;
+                        $('#replyPostBtn').prop('disabled', false).text('Post Reply');
+                        myModal.hide();
+                        $.swipeToast({
+                            message: 'You successfully replied to the comment!',
+                            type: 'success', // 'default', 'success', 'error', 'warning', 'info'
+                            duration: 4000, // Duration in milliseconds
+                            position: 'top-right'
+                        });
+                        reloadData();
+                    }
+                    // $('#replyForm').trigger('reset');
+                }
+            })
+
+        }
+
+        $('#commentForm').on('submit', function (e) {
+            e.preventDefault();
+            var t = $(this);
+
+            var data = $(this).serialize();
+            data = data + '&action=postcomment'
+            $('#commentBTN').prop('disabled', true).text('Posting...');
+            $.ajax({
+                url: mainURL + "?" + data,
+                method: "GET",
+                success: function (r) {
+                    if (r == 1) {
+                        t.trigger('reset');
+                        $('#commentBTN').prop('disabled', false).text('Post');
+                        $.swipeToast({
+                            message: 'You successfully posted a comment!',
+                            type: 'success', // 'default', 'success', 'error', 'warning', 'info'
+                            duration: 8000, // Duration in milliseconds
+                            position: 'top-right'
+                        });
+                        reloadData();
+                        $('html, body').animate({
+                            scrollTop: $('#commentForm').offset().top - 200
+                        }, 250);
+
+                    }
+                }
+            });
+        })
+
+        function reloadData() {
+            $.ajax({
+                url: mainURL + "?action=refresh",
+                success: function (xtr) {
+                    //now append html in main 
+                    $("#refresh").html(xtr);
+
+                    const items = document.querySelectorAll(".accordion-item");
+
+                    items.forEach(item => {
+                        const header = item.querySelector(".accordion-header");
+
+                        header.addEventListener("click", () => {
+                            item.classList.toggle("active");
+                        });
+                    });
+
+                }
+            })
+        }
+        reloadData();
+    </script>
+</body>
+
+</html>
