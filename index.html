@@ -476,7 +476,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header justify-content-between">
-                    <h4 class="premiumDate"> Premium update - 15 June 2026 </h4>
+                    <h4 class="premiumDate"> Unpublished update</h4>
                     <button type="button" class="btn text-white ml-auto" style=" font-size: 32px; padding: 0;"
                         data-bs-dismiss="modal">&times;</button>
                 </div>
@@ -490,7 +490,7 @@
                                 style="font-weight: normal; color: rgb(251, 255, 0) !important; text-decoration: underline;"
                                 class="" target="_blank">How to Access? Tutorial ➝</a> <br>
                             <br><br>
-                            <a href="#" target="_blank" class="getPremium d-block m-auto">Get Premium Links 🜲</a>
+                            <a href="#" target="_blank" class="getPremium d-block m-auto">View Links 🜲</a>
                         </div>
                     </div>
                 </div>
@@ -557,7 +557,7 @@
             let premiumURL = $(this).data('id');
             let premiumDate = $(this).data('date');
             $('.getPremium').attr('href',premiumURL);
-            $('.premiumDate').text(`Premium update - ${premiumDate}`);
+            $('.premiumDate').text(`Unpublished update - ${premiumDate}`);
 
             premiumModel.show();
         })
