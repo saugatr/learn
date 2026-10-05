@@ -73,7 +73,6 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-   transform: scale(1.06);
 }
 
 body.modal-open {
